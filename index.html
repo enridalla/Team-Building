@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Team Building Game</title>
+</head>
+<body>
+    <h1>Domande Team Building</h1>
+    <button onclick="estraiDomande()">Estrai 5 Domande</button>
+    <ul id="domande"></ul>
+
+    <script>
+        const domande = [
+            "Qual è il tuo colore preferito?",
+            "Se potessi viaggiare in qualsiasi parte del mondo, dove andresti?",
+            "Qual è il tuo piatto preferito?",
+            // ... (aggiungi le altre 197 domande)
+        ];
+
+        function estraiDomande() {
+            const domandeCasuali = [];
+            while (domandeCasuali.length < 5) {
+                const domanda = domande[Math.floor(Math.random() * domande.length)];
+                if (!domandeCasuali.includes(domanda)) {
+                    domandeCasuali.push(domanda);
+                }
+            }
+            const listaDomande = document.getElementById("domande");
+            listaDomande.innerHTML = domandeCasuali.map(d => `<li>${d}</li>`).join("");
+        }
+    </script>
+</body>
+</html>
